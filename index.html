@@ -3,189 +3,46 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>Glitch — Confidencial / Error</title>
-  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;900&display=swap" rel="stylesheet">
-  <style>
-    :root{
-      --bg:#000;
-      --text:#eaeaea;
-      --accent:#ff2d55; /* magenta-ish */
-      --accent2:#00e1ff; /* cyan-ish */
-      --mono: 0.6;
-    }
-    html,body{height:100%;}
-    body{
-      margin:0;
-      background:var(--bg);
-      color:var(--text);
-      font-family: 'Playfair Display', Georgia, serif;
-      display:flex;
-      align-items:center;
-      justify-content:center;
-      overflow:hidden;
-    }
-
-    .wrap{
-      text-align:center;
-      padding:4vw;
-      max-width:1200px;
-      width:100%;
-    }
-
-    h1.phrase{
-      font-weight:900;
-      font-size:clamp(22px,6.5vw,72px);
-      line-height:1.05;
-      letter-spacing:0.01em;
-      color:var(--text);
-      position:relative;
-      margin:0 auto;
-      display:inline-block;
-      transform-origin:center;
-      -webkit-font-smoothing:antialiased;
-      text-shadow: 0 0 18px rgba(255,255,255,0.02);
-    }
-
-    h1.phrase::before,
-    h1.phrase::after{
-      content:attr(data-text);
-      position:absolute;
-      left:0; top:0;
-      width:100%; height:100%;
-      overflow:hidden;
-      clip-path: inset(0 0 0 0);
-      pointer-events:none;
-    }
-    h1.phrase::before{
-      color:var(--accent);
-      mix-blend-mode:screen;
-      transform:translateX(-6px);
-      opacity:0.8;
-      filter:blur(0.6px);
-      animation: mainGlitchBefore 3s infinite linear alternate-reverse;
-    }
-    h1.phrase::after{
-      color:var(--accent2);
-      mix-blend-mode:screen;
-      transform:translateX(6px);
-      opacity:0.85;
-      filter:blur(0.6px);
-      animation: mainGlitchAfter 2.7s infinite linear alternate-reverse;
-    }
-
-    @keyframes mainGlitchBefore{
-      0%{transform:translate(-6px,0) skewX(0deg); clip-path: inset(0 0 0 0)}
-      10%{transform:translate(-4px,-2px) skewX(-0.6deg); clip-path: inset(0 0 40% 0)}
-      20%{transform:translate(-8px,4px) skewX(0.6deg); clip-path: inset(30% 0 0 0)}
-      30%{transform:translate(-2px,-1px) skewX(-0.2deg); clip-path: inset(0 0 0 0)}
-      100%{transform:translate(-6px,0) skewX(0deg);}
-    }
-    @keyframes mainGlitchAfter{
-      0%{transform:translate(6px,0) skewX(0deg)}
-      8%{transform:translate(10px,2px) skewX(1deg); clip-path: inset(50% 0 0 0)}
-      24%{transform:translate(3px,-3px) skewX(-1deg); clip-path: inset(0 0 30% 0)}
-      40%{transform:translate(6px,1px) skewX(0deg)}
-      100%{transform:translate(6px,0) skewX(0deg)}
-    }
-
-    p.lead{opacity:0.06;margin-top:20px;font-size:14px;letter-spacing:2px;text-transform:uppercase}
-
-    .glitch-word{
-      position:fixed;
-      font-family:monospace, system-ui, monospace;
-      font-weight:700;
-      text-transform:uppercase;
-      letter-spacing:2px;
-      pointer-events:none;
-      user-select:none;
-      mix-blend-mode:screen;
-      color:var(--text);
-      font-size:18px;
-      transform:translate3d(0,0,0);
-      z-index:50;
-    }
-    .glitch-word[data-type="conf"]{font-size:20px}
-    .glitch-word[data-type="err"]{font-size:26px}
-
-    .glitch-word span{
-      position:relative;display:inline-block;
-    }
-    .glitch-word span::before,
-    .glitch-word span::after{
-      content:attr(data-text);
-      position:absolute;left:0;top:0;width:100%;
-      opacity:0.9;
-      clip-path: inset(0 0 0 0);
-    }
-    .glitch-word span::before{color:var(--accent);transform:translate(-2px,0)}
-    .glitch-word span::after{color:var(--accent2);transform:translate(2px,0)}
-
-    .glitch-on{animation:glitchPop 3s infinite steps(1, end)}
-
-    @keyframes glitchPop{
-      0%{opacity:0;transform:translateY(-20px) scale(0.95)}
-      5%{opacity:1}
-      6%{transform:translateY(-2px) translateX(-2px)}
-      8%{transform:translateY(2px) translateX(4px)}
-      12%{transform:translateY(0) translateX(0)}
-      13%{clip-path: inset(40% 0 0 0)}
-      14%{clip-path: inset(0 60% 0 0)}
-      16%{clip-path: inset(0 0 40% 0)}
-      20%{opacity:1}
-      80%{opacity:0.05;transform:scale(1)}
-      100%{opacity:0}
-    }
-
-    .scanlines{
-      position:fixed;inset:0;pointer-events:none;z-index:60;background-image:linear-gradient(rgba(255,255,255,0.01) 1px, transparent 1px);background-size:100% 4px;opacity:0.06;
-    }
-
-    @media (prefers-reduced-motion: reduce){
-      *{animation:none !important; transition:none !important}
-      h1.phrase::before, h1.phrase::after{display:none}
-    }
-  </style>
+  <title>É azul mas se faz de verde</title>
+  <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-  <div class="wrap">
-    <h1 class="phrase" data-text="E o primeiro passo para um longo caminho, mas que ao longo de seus passos, se torna esquecido">E o primeiro passo para um longo caminho, mas que ao longo de seus passos, se torna esquecido</h1>
-    <p class="lead"> </p>
-  </div>
+  <main class="wrap">
+    <h1 class="serif-bold">E o primeiro passo para um longo caminho, mas que ao longo de seus passos, se torna esquecido</h1>
 
-  <div id="glitchContainer">
-    <div class="glitch-word" id="g1" data-type="conf" aria-hidden="true"><span data-text="CONFIDENCIAL">CONFIDENCIAL</span></div>
-    <div class="glitch-word" id="g2" data-type="err" aria-hidden="true"><span data-text="ERROR">ERROR</span></div>
-  </div>
+    <div class="glitch-cloud top">
+      <span class="glitch">confidencial</span>
+      <span class="glitch error">error</span>
+      <span class="glitch">confidencial</span>
+      <span class="glitch error">error</span>
+    </div>
 
-  <div class="scanlines" aria-hidden="true"></div>
+    <div class="glitch-cloud right">
+      <span class="glitch error">error</span>
+      <span class="glitch">confidencial</span>
+      <span class="glitch error">error</span>
+    </div>
+
+    <div class="glitch-cloud bottom">
+      <span class="glitch">confidencial</span>
+      <span class="glitch error">error</span>
+    </div>
+
+    <div class="glitch-cloud left">
+      <span class="glitch error">error</span>
+      <span class="glitch">confidencial</span>
+      <span class="glitch">confidencial</span>
+    </div>
+  </main>
 
   <script>
-    const g1 = document.getElementById('g1');
-    const g2 = document.getElementById('g2');
-    function rand(min, max){ return Math.random()*(max-min)+min }
-    function placeAndGlitch(el){
-      const vw = window.innerWidth, vh = window.innerHeight;
-      const x = rand(0.06*vw, 0.9*vw);
-      const y = rand(0.06*vh, 0.9*vh);
-      el.style.left = x + 'px';
-      el.style.top = y + 'px';
-      el.style.transform = `rotate(${rand(-6,6)}deg)`;
-      const dur = rand(2.2,4.0).toFixed(2)+'s';
-      el.style.animationDuration = dur;
-      el.classList.remove('glitch-on');
-      setTimeout(()=> el.classList.add('glitch-on'), 50);
-      setTimeout(()=> el.classList.remove('glitch-on'), 3000);
-    }
-    function schedule(){
-      const next1 = rand(900, 4000);
-      const next2 = rand(600, 3200);
-      setTimeout(()=>{ placeAndGlitch(g1); schedule(); }, next1);
-      setTimeout(()=>{ placeAndGlitch(g2); }, next2);
-    }
-    window.addEventListener('load', ()=>{
-      placeAndGlitch(g1); placeAndGlitch(g2);
-      schedule();
-      window.addEventListener('resize', ()=>{ placeAndGlitch(g1); placeAndGlitch(g2); });
+    document.querySelectorAll('.glitch-cloud').forEach(cloud => {
+      const children = Array.from(cloud.children);
+      children.forEach((el, i) => {
+        const rX = (Math.random() - 0.5) * 8;
+        const rY = (Math.random() - 0.5) * 8;
+        el.style.transform = `translate(${rX}px, ${rY}px) rotate(${(Math.random()-0.5)*6}deg)`;
+      });
     });
   </script>
 </body>
