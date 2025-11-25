@@ -2,32 +2,99 @@
 <html lang="pt-BR">
 <head>
   <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Frase — Tela Preta</title>
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Meus Parabéns!</title>
+
   <style>
-    html, body {
-      margin: 0;
-      padding: 0;
-      height: 100%;
-      background: #000;
-      color: #fff;
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+
+    html,body { height: 100%; }
+    body {
+      font-family: system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+      min-height: 100%;
+      background-image: url('background.jpg');
+      background-size: cover;
+      background-position: center center;
+      background-repeat: no-repeat;
+      background-attachment: fixed;
       display: flex;
-      justify-content: center;
       align-items: center;
-      font-family: Georgia, "Times New Roman", serif;
-      font-weight: 700;
+      justify-content: center;
+      padding: 2rem;
+      color: #111;
+    }
+
+    .card {
+      width: 100%;
+      max-width: 920px;
+      background: rgba(255,255,255,0.88);
+      backdrop-filter: blur(4px);
+      border-radius: 14px;
+      padding: clamp(18px, 3vw, 36px);
+      box-shadow: 0 10px 30px rgba(0,0,0,0.25);
+    }
+
+    .title {
+      font-family: system-ui, -apple-system, "Segoe UI", Roboto;
+      font-weight: 800;
+      font-size: clamp(28px, 6vw, 56px);
+      line-height: 1.05;
+      color: #0b3d91;
       text-align: center;
+      margin-bottom: 0.4rem;
     }
-    .quote {
-      font-size: clamp(1.4rem, 4vw, 3.2rem);
-      padding: 20px;
-      max-width: 900px;
+
+    .subtitle {
+      font-family: "Georgia", "Times New Roman", Times, serif;
+      font-weight: 700;
+      font-size: clamp(14px, 2.6vw, 20px);
+      line-height: 1.3;
+      text-align: center;
+      margin-bottom: 1rem;
+      color: #222;
     }
+
+    .links ul {
+      list-style: disc;
+      padding-left: 1.25rem;
+      margin-top: 0.75rem;
+    }
+    .links li {
+      margin: 0.6rem 0;
+      font-size: clamp(14px, 2vw, 18px);
+      word-wrap: break-word;
+    }
+    .links a {
+      text-decoration: none;
+      color: #0b3d91;
+      font-weight: 600;
+    }
+    .links a:hover { text-decoration: underline; }
   </style>
 </head>
 <body>
-  <div class="quote">
-    E o primeiro passo para um longo caminho mas que ao longo do tempo todos se esquecem
-  </div>
+  <main class="card" role="main" aria-labelledby="main-title">
+    <h1 id="main-title" class="title">Meus Parabéns!</h1>
+
+    <p class="subtitle">
+      Você completou o enigma mais difícil do mundo, e aqui está sua recompensa pelo seu ótimo desempenho:
+    </p>
+
+    <section class="links">
+      <ul>
+        <li><a href="https://youtu.be/PNXEZ1KdVMs?si=STGGykeYvTVNQ7aW">https://youtu.be/PNXEZ1KdVMs</a></li>
+        <li><a href="https://youtu.be/tVtdrESgrbk?si=hxH7aLuZquG0FUoX">https://youtu.be/tVtdrESgrbk</a></li>
+        <li><a href="https://youtu.be/Slm8o8NluIE?si=r8uf3HINmvriISwz">https://youtu.be/Slm8o8NluIE</a></li>
+        <li><a href="https://youtu.be/B3Ioy9oo1E0?si=WBHxol5_ytxTeBEB">https://youtu.be/B3Ioy9oo1E0</a></li>
+        <li><a href="https://youtu.be/XST0IQebaIk?si=eOGa_oic005vpN25">https://youtu.be/XST0IQebaIk</a></li>
+        <li><a href="https://youtu.be/pjFLFMOCoTk?si=xWVNdcaRLAgiZcYF">https://youtu.be/pjFLFMOCoTk</a></li>
+        <li><a href="https://youtu.be/RPjRk8mrJN8?si=MSbc9zFYmlSyTdiA">https://youtu.be/RPjRk8mrJN8</a></li>
+        <li><a href="https://youtu.be/uQviL_mMDcY?si=IKc6hZ0O59kSZ3GH">https://youtu.be/uQviL_mMDcY</a></li>
+        <li><a href="https://youtu.be/TXHxrDz_MNk?si=gQHeUQ4Z3ky3GI_w">https://youtu.be/TXHxrDz_MNk</a></li>
+        <li><a href="https://youtu.be/QTeHRr9hgcw?si=mLmyo0OiMG566ati">https://youtu.be/QTeHRr9hgcw</a></li>
+        <li><a href="https://youtu.be/r0jcrt8z-J0?si=QfhDHqr5QHs09C2z">https://youtu.be/r0jcrt8z-J0</a></li>
+      </ul>
+    </section>
+  </main>
 </body>
 </html>
