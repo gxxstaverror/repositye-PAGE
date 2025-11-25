@@ -3,98 +3,166 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>Meus Parabéns!</title>
-
+  <title>Glitch — Confidencial / Error</title>
   <style>
-    * { box-sizing: border-box; margin: 0; padding: 0; }
-
-    html,body { height: 100%; }
-    body {
-      font-family: system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
-      min-height: 100%;
-      background-image: url('background.jpg');
-      background-size: cover;
-      background-position: center center;
-      background-repeat: no-repeat;
-      background-attachment: fixed;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      padding: 2rem;
-      color: #111;
+    :root{
+      --bg:#000000;
+      --text:#ffffff;
+      --muted:rgba(255,255,255,0.06);
+      --accent1: #ff3b3b;
+      --accent2: #00e6b8;
+      --font-serif: Georgia, "Times New Roman", Times, serif;
     }
-
-    .card {
-      width: 100%;
-      max-width: 920px;
-      background: rgba(255,255,255,0.88);
-      backdrop-filter: blur(4px);
-      border-radius: 14px;
-      padding: clamp(18px, 3vw, 36px);
-      box-shadow: 0 10px 30px rgba(0,0,0,0.25);
+    html,body{
+      height:100%;
+      margin:0;
+      background:var(--bg);
+      color:var(--text);
+      font-family: var(--font-serif);
     }
-
-    .title {
-      font-family: system-ui, -apple-system, "Segoe UI", Roboto;
-      font-weight: 800;
-      font-size: clamp(28px, 6vw, 56px);
-      line-height: 1.05;
-      color: #0b3d91;
-      text-align: center;
-      margin-bottom: 0.4rem;
+    .wrap{
+      min-height:100vh;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      position:relative;
+      overflow:hidden;
     }
-
-    .subtitle {
-      font-family: "Georgia", "Times New Roman", Times, serif;
-      font-weight: 700;
-      font-size: clamp(14px, 2.6vw, 20px);
-      line-height: 1.3;
-      text-align: center;
-      margin-bottom: 1rem;
-      color: #222;
+    .main-phrase{
+      text-align:center;
+      padding: 4vw;
+      max-width:1100px;
+      line-height:1.12;
+      font-weight:700;
+      font-size: clamp(22px, 5vw, 56px);
+      letter-spacing: 0.02em;
+      color: var(--text);
+      position:relative;
+      z-index:10;
     }
-
-    .links ul {
-      list-style: disc;
-      padding-left: 1.25rem;
-      margin-top: 0.75rem;
+    .background-words{
+      position:absolute;
+      inset:0;
+      z-index:1;
+      pointer-events:none;
+      font-size: 160px;
+      font-weight:700;
+      opacity:0.03;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      transform:translateY(8vh);
     }
-    .links li {
-      margin: 0.6rem 0;
-      font-size: clamp(14px, 2vw, 18px);
-      word-wrap: break-word;
+    .glitch-layer{
+      position:absolute;
+      inset:0;
+      pointer-events:none;
+      z-index:20;
     }
-    .links a {
-      text-decoration: none;
-      color: #0b3d91;
-      font-weight: 600;
+    .glitch-word{
+      position:absolute;
+      font-family: var(--font-serif);
+      font-weight:700;
+      font-size: clamp(14px, 2vw, 42px);
+      color: var(--muted);
+      user-select:none;
+      opacity:0.9;
+      white-space:nowrap;
+      transform-origin:center;
+      mix-blend-mode:screen;
+      animation: float 4s ease-in-out infinite;
     }
-    .links a:hover { text-decoration: underline; }
+    .glitch-word::before,
+    .glitch-word::after{
+      content: attr(data-word);
+      position:absolute;
+      left:0;
+      top:0;
+      width:100%;
+      height:100%;
+    }
+    .glitch-word::before{
+      color: var(--accent1);
+      transform: translateX(-3px);
+      mix-blend-mode: screen;
+      opacity:0.9;
+      animation: glitchA 2.5s infinite linear;
+    }
+    .glitch-word::after{
+      color: var(--accent2);
+      transform: translateX(3px);
+      mix-blend-mode: screen;
+      opacity:0.85;
+      animation: glitchB 3.1s infinite linear;
+    }
+    @keyframes float{
+      0%{ transform: translateY(0) rotate(-1deg); opacity:0.85;}
+      50%{ transform: translateY(-6px) rotate(1deg); opacity:1;}
+      100%{ transform: translateY(0) rotate(-1deg); opacity:0.85;}
+    }
+    @keyframes glitchA{
+      0%{ transform: translateX(-3px) translateY(0);}
+      10%{ transform: translateX(-6px) translateY(-2px);}
+      20%{ transform: translateX(-2px) translateY(1px);}
+      30%{ transform: translateX(-8px) translateY(-1px);}
+      40%{ transform: translateX(-3px) translateY(0);}
+      100%{ transform: translateX(-3px) translateY(0);}
+    }
+    @keyframes glitchB{
+      0%{ transform: translateX(3px) translateY(0);}
+      8%{ transform: translateX(6px) translateY(1px);}
+      18%{ transform: translateX(2px) translateY(-1px);}
+      28%{ transform: translateX(10px) translateY(2px);}
+      38%{ transform: translateX(3px) translateY(0);}
+      100%{ transform: translateX(3px) translateY(0);}
+    }
   </style>
 </head>
 <body>
-  <main class="card" role="main" aria-labelledby="main-title">
-    <h1 id="main-title" class="title">Meus Parabéns!</h1>
+  <div class="wrap">
+    <div class="background-words">CONFIDENCIAL • ERROR</div>
 
-    <p class="subtitle">
-      Você completou o enigma mais difícil do mundo, e aqui está sua recompensa pelo seu ótimo desempenho:
-    </p>
+    <div class="main-phrase">
+      𝐄 𝐨 𝐩𝐫𝐢𝐦𝐞𝐢𝐫𝐨 𝐩𝐚𝐬𝐬𝐨 𝐩𝐚𝐫𝐚 𝐮𝐦 𝐥𝐨𝐧𝐠𝐨 𝐜𝐚𝐦𝐢𝐧𝐡𝐨, 𝐦𝐚𝐬 𝐪𝐮𝐞 𝐚𝐨 𝐥𝐨𝐧𝐠𝐨 𝐝𝐨 𝐭𝐞𝐦𝐩𝐨, 𝐭𝐨𝐝𝐨𝐬 𝐬𝐞 𝐞𝐬𝐪𝐮𝐞𝐜𝐞𝐦
+    </div>
 
-    <section class="links">
-      <ul>
-        <li><a href="https://youtu.be/PNXEZ1KdVMs?si=STGGykeYvTVNQ7aW">https://youtu.be/PNXEZ1KdVMs</a></li>
-        <li><a href="https://youtu.be/tVtdrESgrbk?si=hxH7aLuZquG0FUoX">https://youtu.be/tVtdrESgrbk</a></li>
-        <li><a href="https://youtu.be/Slm8o8NluIE?si=r8uf3HINmvriISwz">https://youtu.be/Slm8o8NluIE</a></li>
-        <li><a href="https://youtu.be/B3Ioy9oo1E0?si=WBHxol5_ytxTeBEB">https://youtu.be/B3Ioy9oo1E0</a></li>
-        <li><a href="https://youtu.be/XST0IQebaIk?si=eOGa_oic005vpN25">https://youtu.be/XST0IQebaIk</a></li>
-        <li><a href="https://youtu.be/pjFLFMOCoTk?si=xWVNdcaRLAgiZcYF">https://youtu.be/pjFLFMOCoTk</a></li>
-        <li><a href="https://youtu.be/RPjRk8mrJN8?si=MSbc9zFYmlSyTdiA">https://youtu.be/RPjRk8mrJN8</a></li>
-        <li><a href="https://youtu.be/uQviL_mMDcY?si=IKc6hZ0O59kSZ3GH">https://youtu.be/uQviL_mMDcY</a></li>
-        <li><a href="https://youtu.be/TXHxrDz_MNk?si=gQHeUQ4Z3ky3GI_w">https://youtu.be/TXHxrDz_MNk</a></li>
-        <li><a href="https://youtu.be/QTeHRr9hgcw?si=mLmyo0OiMG566ati">https://youtu.be/QTeHRr9hgcw</a></li>
-        <li><a href="https://youtu.be/r0jcrt8z-J0?si=QfhDHqr5QHs09C2z">https://youtu.be/r0jcrt8z-J0</a></li>
-      </ul>
-    </section>
-  </main>
+    <div class="glitch-layer" id="glitchLayer"></div>
+  </div>
+
+  <script>
+    (function(){
+      const LAYER = document.getElementById('glitchLayer');
+      const WORDS = ['confidencial','error','confidencial','error','confidencial','error'];
+      const COUNT = 20;
+
+      function createGlitchWords(){
+        LAYER.innerHTML = '';
+        for(let i=0;i<COUNT;i++){
+          const w = document.createElement('span');
+          const word = WORDS[Math.floor(Math.random()*WORDS.length)];
+          w.className = 'glitch-word';
+          w.setAttribute('data-word', word);
+          w.textContent = word;
+          randomizePosition(w);
+          LAYER.appendChild(w);
+        }
+      }
+
+      function randomizePosition(el){
+        const vw = window.innerWidth;
+        const vh = window.innerHeight;
+        const angle = Math.random() * Math.PI * 2;
+        const radius = (Math.random()*0.45 + 0.18) * Math.min(vw, vh);
+        const cx = vw/2 + Math.cos(angle)*radius;
+        const cy = vh/2 + Math.sin(angle)*radius;
+
+        el.style.left = cx + 'px';
+        el.style.top  = cy + 'px';
+        el.style.transform = 'translate(-50%,-50%)';
+      }
+
+      createGlitchWords();
+    })();
+  </script>
 </body>
 </html>
