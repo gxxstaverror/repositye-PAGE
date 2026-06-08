@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Enigma 1</title>
+<style>
+html, body {
+    margin: 0;
+    width: 100%;
+    height: 100%;
+    background: #000;
+    overflow: hidden;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#texto {
+    color: white;
+    font-size: clamp(1.5rem, 4vw, 3rem);
+    text-align: center;
+    text-shadow: 0 0 10px rgba(255,255,255,0.8);
+}
+</style>
+</head>
+<body>
+
+<div id="texto">O primeiro passo para um longo caminho</div>
+
+<script>
+const texto = document.getElementById("texto");
+
+function falhaLampada() {
+    const brilho = Math.random() < 0.45
+        ? (0.1 + Math.random() * 0.3)
+        : (0.7 + Math.random() * 0.3);
+
+    texto.style.opacity = brilho;
+    texto.style.textShadow = `0 0 ${10 + brilho * 20}px rgba(255,255,255,${brilho})`;
+
+    setTimeout(falhaLampada, Math.random() * 250 + 30);
+}
+
+falhaLampada();
+</script>
+
+</body>
+</html>
